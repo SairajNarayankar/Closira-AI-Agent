@@ -1,0 +1,39 @@
+{
+  "business_name": "Bloom Aesthetics Clinic",
+  "business_hours": {
+    "days": "Monday to Saturday",
+    "time": "9:00 AM - 7:00 PM",
+    "closed": "Sunday"
+  },
+  "services": [
+    {
+      "name": "Botox",
+      "price": "from £200",
+      "description": "Anti-wrinkle injections"
+    },
+    {
+      "name": "Fillers",
+      "price": "from £250",
+      "description": "Dermal fillers for volume and contour"
+    },
+    {
+      "name": "Consultation",
+      "price": "free",
+      "description": "Initial consultation with our specialists"
+    }
+  ],
+  "booking_policy": {
+    "methods": ["WhatsApp", "website"],
+    "cancellation_policy": "24-hour cancellation notice required"
+  },
+  "escalation_triggers": [
+    "complaint",
+    "medical question",
+    "pricing negotiation",
+    "more than 2 unanswered questions"
+  ],
+  "contact": {
+    "whatsapp": "Available for booking",
+    "website": "Available for booking"
+  }
+}
