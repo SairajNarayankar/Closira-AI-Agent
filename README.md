@@ -1,10 +1,24 @@
-# Closira AI Customer Support Workflow
+# 🤖 Closira AI Customer Support Workflow
 
-A production-ready AI-powered customer support system demonstrating intelligent conversation handling, lead qualification, escalation detection, and conversation summarization for SMB customer service.
+<div align="center">
+
+![Closira Banner](https://img.shields.io/badge/Closira-AI%20Customer%20Support-6C3FC5?style=for-the-badge&logo=openai&logoColor=white)
+![OpenAI GPT-4](https://img.shields.io/badge/GPT--4%20Turbo-AI%20Powered-412991?style=for-the-badge&logo=openai&logoColor=white)
+![Python](https://img.shields.io/badge/Python%203.10+-Language-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Rich CLI](https://img.shields.io/badge/Rich-CLI%20Interface-009688?style=for-the-badge&logo=python&logoColor=white)
+![License](https://img.shields.io/badge/License-All%20Rights%20Reserved-red?style=for-the-badge)
+
+**A production-ready AI-powered customer support system demonstrating intelligent conversation handling, lead qualification, escalation detection, and conversation summarization for SMB customer service.**
+
+📖 **[Architecture](#️-architecture)** &nbsp;|&nbsp; 🚀 **[Setup](#-setup-instructions)** &nbsp;|&nbsp; 🧪 **[Testing](#-testing)** &nbsp;|&nbsp; 🎨 **[Key Features](#-key-features)**
+
+</div>
+
+---
 
 ## 🎯 Project Overview
 
-This project implements a 4-stage AI workflow for **Bloom Aesthetics Clinic** that:
+This project implements a **4-stage AI workflow** for **Bloom Aesthetics Clinic** that:
 - Answers customer questions using only verified SOP data (no hallucinations)
 - Qualifies leads through structured questions
 - Detects when to escalate to human agents
@@ -43,10 +57,12 @@ This project implements a 4-stage AI workflow for **Bloom Aesthetics Clinic** th
 
 ### Stage Flow
 
-1. **Stage 1: FAQ Answering** - Answers questions using only SOP data
-2. **Stage 2: Lead Qualification** - Collects structured customer information
-3. **Stage 3: Escalation Detection** - Identifies when human intervention needed
-4. **Stage 4: Conversation Summary** - Generates actionable summary at end
+| Stage | Name | Responsibility |
+|---|---|---|
+| **Stage 1** | FAQ Answering | Answers questions using only SOP data |
+| **Stage 2** | Lead Qualification | Collects structured customer information |
+| **Stage 3** | Escalation Detection | Identifies when human intervention is needed |
+| **Stage 4** | Conversation Summary | Generates an actionable summary at end of chat |
 
 ---
 
@@ -91,37 +107,39 @@ closira-assignment/
 - **OpenAI API Key** (GPT-4 access recommended)
 - **Git** (for cloning)
 
-### Installation
+### 1. Clone or Download the Project
 
-1. **Clone or download the project**
-   ```bash
-   cd closira-assignment
-   ```
+```bash
+cd closira-assignment
+```
 
-2. **Create virtual environment**
-   ```bash
-   python -m venv venv
-   
-   # Windows
-   venv\Scripts\activate
-   
-   # macOS/Linux
-   source venv/bin/activate
-   ```
+### 2. Create a Virtual Environment
 
-3. **Install dependencies**
-   ```bash
-   pip install -r requirements.txt
-   ```
+```bash
+python -m venv venv
 
-4. **Set up environment variables**
-   ```bash
-   # Copy example file
-   cp .env.example .env
-   
-   # Edit .env and add your OpenAI API key
-   # OPENAI_API_KEY=sk-your-key-here
-   ```
+# Windows
+venv\Scripts\activate
+
+# macOS / Linux
+source venv/bin/activate
+```
+
+### 3. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Set Up Environment Variables
+
+```bash
+# Copy example file
+cp .env.example .env
+
+# Edit .env and add your OpenAI API key
+# OPENAI_API_KEY=sk-your-key-here
+```
 
 ---
 
@@ -136,10 +154,13 @@ python main.py
 ### Interactive Commands
 
 Once running, you can:
-- **Chat normally** - Type your message and press Enter
-- **`help`** - Show help information
-- **`state`** - View current conversation state
-- **`quit`** or **`exit`** - End conversation and generate summary
+
+| Command | Action |
+|---|---|
+| Type a message + Enter | Chat with the AI assistant |
+| `help` | Show help information |
+| `state` | View current conversation state |
+| `quit` or `exit` | End conversation and generate summary |
 
 ### Example Interaction
 
@@ -167,18 +188,19 @@ Ending conversation and generating summary...
 
 Five comprehensive test transcripts are provided in `test_transcripts/`:
 
-1. **In-SOP Question** - Verifies accurate SOP-based responses
-2. **Out-of-Scope Question** - Verifies escalation on unknown topics
-3. **Escalation Trigger** - Verifies sentiment detection
-4. **Lead Qualification** - Verifies structured data collection
-5. **Conversation Summary** - Verifies complete summary generation
+| # | File | Scenario |
+|---|---|---|
+| 1 | `01_in_sop_question.md` | Verifies accurate SOP-based responses |
+| 2 | `02_out_of_scope_question.md` | Verifies escalation on unknown topics |
+| 3 | `03_escalation_trigger.md` | Verifies sentiment detection |
+| 4 | `04_lead_qualification.md` | Verifies structured data collection |
+| 5 | `05_conversation_summary.md` | Verifies complete summary generation |
 
 ### Running Tests
 
 Review the test transcripts to understand expected behaviors:
 
 ```bash
-# View test scenarios
 cat test_transcripts/01_in_sop_question.md
 cat test_transcripts/02_out_of_scope_question.md
 # ... etc
@@ -192,48 +214,48 @@ Test each scenario by running `main.py` and following the conversation patterns 
 
 ## 🎨 Key Features
 
-### 1. Hallucination Prevention
+### 1. 🛡️ Hallucination Prevention
 
 **Multi-layer approach:**
-- ✅ Explicit prompt instructions ("ONLY answer from SOP")
-- ✅ SOP data embedded in system prompt
+- ✅ Explicit prompt instructions (`"ONLY answer from SOP"`)
+- ✅ SOP data embedded directly in system prompt
 - ✅ Confidence scoring with 0.7 threshold
 - ✅ Response validation and auto-escalation
 - ✅ Stage-specific reinforcement
 
-**Result:** AI never invents prices, services, or policies.
+> **Result:** AI never invents prices, services, or policies.
 
-### 2. Escalation Detection
+### 2. 🚨 Escalation Detection
 
 **Triggers:**
-- 🔴 Low confidence (<0.7)
+- 🔴 Low confidence (< 0.7)
 - 🔴 Negative sentiment (anger, frustration)
-- 🔴 Explicit request for human
+- 🔴 Explicit request for human agent
 - 🔴 Out-of-scope questions
-- 🔴 Multiple unanswered questions (>2)
+- 🔴 Multiple unanswered questions (> 2)
 
-**Result:** Safe handoff to humans when needed.
+> **Result:** Safe handoff to humans when needed.
 
-### 3. Lead Qualification
+### 3. 🎯 Lead Qualification
 
-**Structured questions:**
-1. What brings you here? (intent)
-2. Previous experience? (qualification)
-3. Booking preference? (action)
+**Structured questions asked in sequence:**
+1. What brings you here? *(intent)*
+2. Previous experience? *(qualification)*
+3. Booking preference? *(action)*
 
-**Result:** Actionable customer data for follow-up.
+> **Result:** Actionable customer data ready for follow-up.
 
-### 4. Conversation Summary
+### 4. 📋 Conversation Summary
 
-**Includes:**
+**Each summary includes:**
 - Customer intent
 - Key details collected
-- Questions asked/answered
+- Questions asked / answered
 - SOP gaps identified
 - Escalation status
 - Recommended next action
 
-**Result:** Complete context for human agents.
+> **Result:** Complete context handed off to human agents.
 
 ---
 
@@ -280,7 +302,7 @@ In `utils/openai_client.py`:
 
 ## 📝 Logging
 
-Conversations are automatically logged to `logs/` directory:
+Conversations are automatically logged to the `logs/` directory:
 
 ```json
 {
@@ -294,28 +316,32 @@ Conversations are automatically logged to `logs/` directory:
 
 ---
 
-## 🎯 Assignment Requirements Checklist
+## ✅ Assignment Requirements Checklist
 
-### ✅ Core Functionality
+### Core Functionality
+
 - [x] Stage 1: FAQ Answering with SOP-only responses
 - [x] Stage 2: Lead Qualification with structured questions
 - [x] Stage 3: Escalation Detection with multiple triggers
 - [x] Stage 4: Conversation Summary with structured output
 
-### ✅ Safety & Reliability
+### Safety & Reliability
+
 - [x] Hallucination prevention (multi-layer)
 - [x] Confidence-based escalation
 - [x] Sentiment detection
 - [x] Out-of-scope handling
 - [x] Graceful error handling
 
-### ✅ Documentation
-- [x] `prompt_design.md` - Complete prompt documentation
-- [x] `README.md` - Setup and usage instructions
-- [x] Test transcripts - 5 scenarios covered
-- [x] Code comments - Comprehensive inline documentation
+### Documentation
 
-### ✅ Code Quality
+- [x] `prompt_design.md` — Complete prompt documentation
+- [x] `README.md` — Setup and usage instructions
+- [x] Test transcripts — 5 scenarios covered
+- [x] Code comments — Comprehensive inline documentation
+
+### Code Quality
+
 - [x] Modular architecture (separate stages)
 - [x] Clean separation of concerns
 - [x] Error handling and fallbacks
@@ -326,12 +352,14 @@ Conversations are automatically logged to `logs/` directory:
 
 ## 🚨 Known Limitations
 
-1. **Keyword-Based Sentiment**: May miss subtle negativity
-2. **English Only**: No multilingual support
-3. **Static SOP**: Requires manual updates
-4. **API Dependency**: Requires OpenAI API access
+| # | Limitation | Detail |
+|---|---|---|
+| 1 | **Keyword-Based Sentiment** | May miss subtle negativity |
+| 2 | **English Only** | No multilingual support |
+| 3 | **Static SOP** | Requires manual updates to JSON |
+| 4 | **API Dependency** | Requires active OpenAI API access |
 
-See `prompt_design.md` Section 8 for detailed trade-offs and mitigation strategies.
+> See `prompt_design.md` Section 8 for detailed trade-offs and mitigation strategies.
 
 ---
 
@@ -350,18 +378,28 @@ See `prompt_design.md` Section 8 for detailed trade-offs and mitigation strategi
 
 ## 📚 Dependencies
 
-```
-openai>=1.12.0          # OpenAI API client
-python-dotenv>=1.0.0    # Environment variable management
-pydantic>=2.6.0         # Data validation
-rich>=13.7.0            # CLI formatting
-```
+| Package | Version | Purpose |
+|---|---|---|
+| `openai` | `>=1.12.0` | OpenAI API client |
+| `python-dotenv` | `>=1.0.0` | Environment variable management |
+| `pydantic` | `>=2.6.0` | Data validation |
+| `rich` | `>=13.7.0` | CLI formatting |
 
-Install all with: `pip install -r requirements.txt`
+```bash
+pip install -r requirements.txt
+```
 
 ---
 
 ## 🤝 Assignment Context
+
+<div align="center">
+
+![Closira Internship](https://img.shields.io/badge/Closira-AI%20Engineering%20Internship-6C3FC5?style=for-the-badge)
+![Focus](https://img.shields.io/badge/Focus-Prompt%20Engineering%20%2B%20Safety-FF6B6B?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Submission%20Ready%20%E2%9C%85-brightgreen?style=for-the-badge)
+
+</div>
 
 **Built for:** Closira AI Engineering Internship  
 **Objective:** Demonstrate AI workflow design, prompt engineering, and safety-first implementation  
@@ -383,22 +421,31 @@ For questions about this implementation:
 
 ---
 
+## 🎓 Learning Outcomes
+
+This project demonstrates:
+
+| Skill | Status |
+|---|---|
+| Advanced prompt engineering | ✅ |
+| Multi-stage AI workflow design | ✅ |
+| Safety-first AI implementation | ✅ |
+| Production-ready code architecture | ✅ |
+| Comprehensive documentation | ✅ |
+| Real-world SMB customer service understanding | ✅ |
+
+---
+
 ## 📄 License
 
 This is an assignment submission. All rights reserved.
 
 ---
 
-## 🎓 Learning Outcomes
+<div align="center">
 
-This project demonstrates:
-- ✅ Advanced prompt engineering
-- ✅ Multi-stage AI workflow design
-- ✅ Safety-first AI implementation
-- ✅ Production-ready code architecture
-- ✅ Comprehensive documentation
-- ✅ Real-world SMB customer service understanding
+Built with ❤️ for **Closira** &nbsp;|&nbsp; Powered by **OpenAI GPT-4** &nbsp;|&nbsp; Designed for **Production-Grade AI Workflows**
 
----
+🤖 *Intelligent support. Safe by design. Ready for the real world.*
 
-**Built with ❤️ for Closira**
+</div>
